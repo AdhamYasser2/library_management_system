@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Borrow a Book</h2>
+    <p>Submitting this form calls the <code>BorrowBook</code> stored procedure.</p>
+    
+    <form action="/borrow" method="POST" class="modern-form">
+        <div class="form-group">
+            <label for="member_id">Member ID</label>
+            <input type="number" id="member_id" name="member_id" required placeholder="e.g., 1">
+        </div>
+        
+        <div class="form-group">
+            <label for="book_id">Book ID</label>
+            <input type="number" id="book_id" name="book_id" required placeholder="e.g., 3">
+        </div>
+
+        <div class="form-group">
+            <label for="librarian_id">Librarian ID</label>
+            <input type="number" id="librarian_id" name="librarian_id" required placeholder="e.g., 1">
+        </div>
+        
+        <button type="submit" class="btn primary-btn">Submit Borrowing</button>
+    </form>
+</div>
+{% endblock %}

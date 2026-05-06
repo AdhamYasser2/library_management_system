@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-container">
+    <h2>{{ title }}</h2>
+    
+    {% if data and data|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <!-- Dynamically generate table headers based on dictionary keys -->
+                {% for key in data[0].keys() %}
+                <th>{{ key | replace('_', ' ') | title }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamically generate table rows based on data -->
+            {% for row in data %}
+            <tr>
+                {% for value in row.values() %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-data">No records found in the database.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Welcome to Library Management System</h1>
+    <p>A powerful UI built on top of your MySQL database. Manage books, track members, and run stored procedures seamlessly.</p>
+</div>
+
+<div class="dashboard-cards">
+    <div class="card">
+        <h3>Borrow a Book</h3>
+        <p>Record a new borrowing operation using the SQL <code>BorrowBook</code> stored procedure.</p>
+        <a href="/borrow" class="btn">Borrow Now</a>
+    </div>
+    <div class="card">
+        <h3>Return a Book</h3>
+        <p>Return a book and let the MySQL triggers automatically calculate any late fines.</p>
+        <a href="/return" class="btn">Return Now</a>
+    </div>
+    <div class="card">
+        <h3>Available Books</h3>
+        <p>View all books that currently have available copies greater than 0.</p>
+        <a href="/available_books" class="btn">View Books</a>
+    </div>
+    <div class="card">
+        <h3>Unpaid Fines</h3>
+        <p>Check which members have overdue books and unpaid fines.</p>
+        <a href="/unpaid_fines" class="btn">View Fines</a>
+    </div>
+</div>
+{% endblock %}
